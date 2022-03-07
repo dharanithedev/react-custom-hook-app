@@ -19,7 +19,7 @@ function App() {
       </header>
       <h2>Custom fetch hook - Science</h2>
       <br/>
-      {loading && 'loading...'}
+      Total length : {loading && 'loading...'}
       <br/>
       {data.length}
       <br/>

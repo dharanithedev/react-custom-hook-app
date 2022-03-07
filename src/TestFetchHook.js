@@ -8,7 +8,7 @@ export default function TestFetchHook() {
         <div>
             <h2>Custom fetch hook - Sports</h2>
             <br/>
-            {loading && 'loading...'}
+            Total length : {loading && 'loading...'}
             <br/>
             {data.length}
             <br/>
