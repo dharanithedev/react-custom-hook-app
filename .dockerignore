@@ -1,0 +1,15 @@
+node_modules
+
+.git
+.gitignore
+.dockerignore
+
+.env
+
+# Dockerfile.dev
+# Dockerfile.prod
+docker-help.txt
+# docker-compose-backup.yml
+# docker-compose-dev.yml
+# docker-compose-prod.yml
+# docker-compose.yml

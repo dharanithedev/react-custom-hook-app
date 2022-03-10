@@ -18,6 +18,7 @@ function App() {
         <p >React Custom Hook - Data Fetch</p>
       </header>
       <h2>Custom fetch hook - Science</h2>
+      <p>{`Hello ${process.env.REACT_APP_NAME}`}</p>
       <br/>
       Total length : {loading && 'loading...'}
       <br/>

@@ -1,0 +1,42 @@
+# Create Docker Config File - Dockerfile
+# Setup Configurations : 
+    FROM node - We are using node image (hub.docker)
+    WORKDIR /app - Docker Working dir 
+    COPY package.json .
+    RUN npm install
+    COPY . .
+    EXPOSE 3000
+    CMD ["npm", "start"]
+
+
+# Running Commands
+    1. To take build image : docker build --no-cache --pull -t react-image . : (It will automatically check for the config file and the commands we configured in.)
+    2. To see all the build images : docker image ls
+    3. To remove build image : docker image rm image-id 
+    4. To run the build on container : docker run -d -p 3000:3000 --name container-name image-name
+    5. To see the running containers : docker ps
+    6. To kill a container : docker rm container-name -f
+    7. To see the FS of the container : docker exec -it container-name bash : then ls
+    8. To read the file - cat file-name
+    9. To sync the changes to our docker-container (Powershell or mac) : docker run -v ${pwd}\src:/app/src -d -p 3000:3000 --name container-name image-name
+    10. To sync the changes to our docker-container (cmd) : docker run -v %cd%\src:/app/src -d -p 3000:3000 --name container-name image-name
+    11. To sync the changes to our docker-container (mac or linux) : docker run -v $(pwd)/src:/app/src -d -p 3000:3000 --name container-name image-name
+    12. With Env - docker run -v ${pwd}\src:/app/src -d -p 3000:3000 --name react-app react-image
+
+    Final : docker run -it --env-file ./.env -v ${pwd}\src:/app/src -d -p 3000:3000 --name react-test-new react-new
+
+
+# Docker Compose :
+==================
+    * Single command for above all with yaml file:
+        docker-compose up -d --build
+        docker-compose down
+
+    * Diff Environment run
+        docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build
+        docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
+
+    * If we wanna run specific stage on multi-stage config
+        docker build --target state-name -f Dockerfile.prod -t temp-image-name .
+
+    
