@@ -39,4 +39,23 @@
     * If we wanna run specific stage on multi-stage config
         docker build --target state-name -f Dockerfile.prod -t temp-image-name .
 
+
+
+
+
+
+
+    const BASH_URL = 'https://inshortsapi.vercel.app/news?category=sports';
+    const { data } = useFetch(BASH_URL);
+    // const { data, loading, error } = useFetch(BASH_URL);
+
+    {/* Total length : {loading && 'loading...'} */}
+            {/* <br/>
+            {data.length}
+            <br/>
+            {error && 'Error'}
+            <div>
+                <pre>{JSON.stringify(data, undefined, 2)}</pre>
+            </div> */}
+
     

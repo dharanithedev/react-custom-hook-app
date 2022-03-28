@@ -2,20 +2,25 @@ import React from 'react';
 import useFetch from './customHooks/useFetch';
 
 export default function TestFetchHook() {
-    const BASH_URL = 'https://inshortsapi.vercel.app/news?category=sports';
-    const { data, loading, error } = useFetch(BASH_URL);
+    const BASH_URL = 'https://inshortsapi.vercel.app/news?category=science';
+    const { data } = useFetch(BASH_URL);
     return (
         <div>
-            <h2>Custom fetch hook - Sports</h2>
-            <br/>
-            Total length : {loading && 'loading...'}
-            <br/>
-            {data.length}
-            <br/>
-            {error && 'Error'}
-            <div>
-                <pre>{JSON.stringify(data, undefined, 2)}</pre>
-            </div>
+            {
+                data.map(function (item, i) {
+                    return (
+                        <div class="card" key={i}>
+                            <img src={item.imageUrl} alt="profile" />
+                            <div class="details">
+                                <h2>{item.author}</h2>
+                                <p>{item.date}</p>
+                            </div>
+                            <p id="info">{item.content}</p>
+                        </div>
+                    )
+                })
+            }
+
         </div>
     )
 }
